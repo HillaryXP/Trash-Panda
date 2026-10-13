@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trash Panda ($TRASH) | Turning trash into treasure</title>
+<meta name="description" content="Trash Panda ($TRASH). Born in the dumpster. Built for the memes. Launching on Pump.fun, 17 October 2026, 14:00 UTC.">
+<meta property="og:title" content="Trash Panda ($TRASH)">
+<meta property="og:description" content="Turning trash into treasure. Launching 17 Oct 2026, 14:00 UTC on Pump.fun.">
+<meta property="og:image" content="images/coin.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%9D%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --black:#000;
+  --bag:#0d0f0c;
+  --bag-2:#171a15;
+  --gold:#ffc61a;
+  --gold-deep:#b9860a;
+  --grime:#8da23e;
+  --fur:#d8cdbd;
+  --muted:#a29f94;
+  --display:'Bungee','Impact','Arial Black',sans-serif;
+  --body:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --goldtex:url('images/gold.jpg');
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);height:auto}
+body{margin:0;background:var(--black);color:#f2efe6;font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;margin:0;text-transform:uppercase}
+h2{font-size:clamp(2rem,6.4vw,3.8rem)}
+p{margin:0 0 1em}
+.gold{background:var(--goldtex) center/cover;color:#120d00}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);text-transform:uppercase;font-size:1rem;padding:.9em 1.4em;border:3px solid var(--gold);text-decoration:none;cursor:pointer;background:var(--bag);color:var(--gold);border-radius:14px;transition:transform .12s ease}
+.btn:hover{transform:rotate(-2deg) scale(1.03)}
+.btn.primary{background:var(--goldtex) center/cover;color:#120d00;border-color:#120d00;box-shadow:0 0 0 3px var(--gold)}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
+.btn.small{font-size:.85rem;padding:.6em 1em;border-width:2px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.9);backdrop-filter:blur(6px);border-bottom:2px solid var(--gold-deep)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);text-decoration:none;font-size:1.15rem;text-transform:uppercase;color:var(--gold)}
+.logo img{width:36px;height:36px;border-radius:50%}
+.links{display:flex;gap:20px;align-items:center}
+.links a.t{font-family:var(--display);font-size:.8rem;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.links a.t:hover{color:var(--gold)}
+@media (max-width:760px){.links a.t{display:none}}
+
+/* hero */
+.hero{padding:56px 0 64px;background:radial-gradient(700px 420px at 75% 40%,rgba(255,198,26,.18),transparent 65%),var(--black)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.plate{display:inline-block;padding:.12em .35em .08em;border-radius:18px;transform:rotate(-3deg);box-shadow:8px 8px 0 #2b2b20,0 0 0 4px var(--gold-deep)}
+.plate h1{font-size:clamp(4.4rem,18vw,10rem);line-height:.9;color:#120d00;letter-spacing:.01em}
+.hero .sub{font-family:var(--display);font-size:clamp(1.3rem,4.4vw,2.2rem);margin:30px 0 4px;line-height:1.15}
+.hero .sub em{font-style:normal;color:var(--gold)}
+.hero .lede{color:var(--muted);max-width:36ch;margin-top:12px}
+.coin{justify-self:center;width:min(100%,420px);position:relative}
+.coin img{border-radius:50%;width:100%;filter:drop-shadow(0 20px 50px rgba(255,198,26,.35));animation:wobble 5s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-6px)}}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.coin{width:min(70%,320px);order:-1}}
+
+/* countdown */
+.count{margin-top:28px;border:3px solid var(--gold);border-radius:16px;background:var(--bag);padding:16px 18px;max-width:520px}
+.count .cap{font-family:var(--display);font-size:.8rem;text-transform:uppercase;color:var(--grime);margin-bottom:8px}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center}
+.clock div{background:var(--bag-2);border-radius:10px;padding:10px 4px 8px}
+.clock b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,7vw,2.8rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.clock span{font-size:.75rem;color:var(--muted)}
+.count .when{margin:10px 0 0;font-size:.9rem;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+/* gold band */
+.band{overflow:hidden;border-block:4px solid #120d00;transform:rotate(-1.2deg);margin:-6px -10px;position:relative;z-index:2}
+.band .row{display:flex;width:max-content;animation:run 30s linear infinite;font-family:var(--display);font-size:clamp(1.3rem,4vw,2.2rem);padding:14px 0;text-transform:uppercase;white-space:nowrap}
+.band .row span{padding:0 26px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+section{padding:88px 0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about h2{margin-bottom:22px}
+.about p{color:#d8d4c8;max-width:48ch}
+.stamp{display:inline-block;margin-top:6px;border:3px solid var(--grime);color:var(--grime);font-family:var(--display);text-transform:uppercase;padding:.5em .9em;transform:rotate(-2deg);border-radius:8px;font-size:.95rem}
+.lines{display:grid;gap:14px}
+.line{background:var(--bag);border:2px solid #2a2d24;border-left:8px solid var(--gold);border-radius:12px;padding:18px 20px;font-family:var(--display);text-transform:uppercase;font-size:1.15rem;line-height:1.2}
+.line:nth-child(2){border-left-color:var(--grime);transform:translateX(14px)}
+.line:nth-child(3){transform:translateX(-6px)}
+@media (max-width:860px){.about{grid-template-columns:1fr}.line:nth-child(n){transform:none}}
+
+/* contract */
+.cabox{background:var(--bag);border:3px solid var(--gold);border-radius:16px;padding:22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cabox .l{font-family:var(--display);font-size:.9rem;text-transform:uppercase;color:var(--grime)}
+.cabox code{display:block;font-family:'Courier New',monospace;font-weight:700;font-size:clamp(.85rem,2.8vw,1.1rem);word-break:break-all;margin-top:4px;color:var(--gold)}
+.cabox .info{flex:1 1 300px}
+
+/* buy */
+.buy{background:var(--bag)}
+.steps{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--black);border:2px solid #2a2d24;border-radius:16px;padding:22px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--goldtex) center/cover;color:#120d00;font-family:var(--display);margin-bottom:14px}
+.steps h3{font-size:1.15rem;margin-bottom:8px}
+.steps p{margin:0;color:var(--muted);font-size:.98rem}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.steps{grid-template-columns:1fr}}
+.note{margin-top:26px;color:var(--muted);font-size:.95rem}
+
+/* tokenomics */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px}
+.stat{padding:22px;border-radius:16px}
+.stat dt{font-family:var(--display);text-transform:uppercase;font-size:1.5rem;line-height:1.05}
+.stat dd{margin:8px 0 0;font-size:1rem;color:#2a1f00;font-weight:500}
+
+/* community */
+.community{text-align:center;background:radial-gradient(600px 300px at 50% 100%,rgba(255,198,26,.2),transparent 70%)}
+.community h2{margin-bottom:14px}
+.community p{max-width:44ch;margin:0 auto 26px;color:var(--muted)}
+.community .cta{justify-content:center}
+
+footer{border-top:2px solid var(--gold-deep);padding:32px 0 48px;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;flex-direction:column;gap:12px}
+footer .fl{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--gold);color:#120d00;font-family:var(--display);text-transform:uppercase;font-size:.85rem;padding:.8em 1.3em;border-radius:12px;opacity:0;pointer-events:none;transition:.2s;z-index:50}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.coin img,.band .row{animation:none}html{scroll-behavior:auto}.btn,.toast{transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="images/coin.jpg" alt="" width="36" height="36">Trash Panda</a>
+    <div class="links">
+      <a class="t" href="#about">Lore</a>
+      <a class="t" href="#buy">How to buy</a>
+      <a class="t" href="#tokenomics">Tokenomics</a>
+      <a class="btn primary small" href="https://t.me/+SfKEE7guN5QwNGY1" target="_blank" rel="noopener">Join</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="plate gold"><h1>$TRASH</h1></div>
+      <p class="sub">Turning trash into <em>treasure</em> 🦝🗑️</p>
+      <p class="lede">Born in the dumpster. Built for the memes.</p>
+
+      <div class="count" id="count">
+        <div class="cap" id="cap">Launch countdown</div>
+        <div class="clock" id="clock" aria-live="off">
+          <div><b id="d">00</b><span>days</span></div>
+          <div><b id="h">00</b><span>hours</span></div>
+          <div><b id="m">00</b><span>mins</span></div>
+          <div><b id="s">00</b><span>secs</span></div>
+        </div>
+        <p class="when" id="when">Pump.fun, 17 Oct 2026, 14:00 UTC. CA is posted on X and Telegram the second it goes live.</p>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="https://t.me/+SfKEE7guN5QwNGY1" target="_blank" rel="noopener">Join Telegram</a>
+        <a class="btn" href="https://x.com/Trashonpump" target="_blank" rel="noopener">Follow on X</a>
+        <a class="btn" id="buyTop" href="#buy" aria-disabled="true">Buy on Pump.fun</a>
+      </div>
+    </div>
+    <div class="coin"><img src="images/coin.jpg" alt="Trash Panda coin: a raccoon in a black hoodie and sunglasses holding a trash bag on a gold coin" width="400" height="400"></div>
+  </div>
+</header>
+
+<div class="band gold" aria-hidden="true">
+  <div class="row">
+    <span>One man's $TRASH is another man's treasure</span><span>🦝</span><span>The trash takeover starts now</span><span>🗑️</span><span>Born in the dumpster</span><span>🦝</span><span>Built for the memes</span><span>🗑️</span>
+    <span>One man's $TRASH is another man's treasure</span><span>🦝</span><span>The trash takeover starts now</span><span>🗑️</span><span>Born in the dumpster</span><span>🦝</span><span>Built for the memes</span><span>🗑️</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>Dumpster diver. Degen. Legend.</h2>
+      <p>Trash Panda is the hoodie-wearing, sunglasses-rocking raccoon who digs through the crypto dumpster and pulls out gold. One man's trash is another man's treasure.</p>
+      <p>No roadmap. No utility promises. No corporate nonsense. Just chaotic meme energy, community vibes and the trash takeover.</p>
+      <span class="stamp">Even the website is trash. The memes are gold.</span>
+    </div>
+    <div class="lines">
+      <div class="line">Born in the dumpster</div>
+      <div class="line">Built for the memes</div>
+      <div class="line">The trash takeover starts now</div>
+    </div>
+  </div>
+</section>
+
+<section id="ca" style="padding-top:0">
+  <div class="wrap">
+    <div class="cabox">
+      <div class="info">
+        <span class="l">Contract address (Solana)</span>
+        <code id="caText">Not live yet. Posted here the second it launches on Pump.fun.</code>
+      </div>
+      <button class="btn primary" id="copy" type="button" hidden>Copy CA</button>
+      <a class="btn" id="pump" href="https://x.com/Trashonpump" target="_blank" rel="noopener">Watch X for the CA</a>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <div class="wrap">
+    <h2>How to dive in</h2>
+    <ol class="steps">
+      <li><h3>Get a wallet</h3><p>Install a Solana wallet like Phantom or Solflare. Keep your recovery phrase offline.</p></li>
+      <li><h3>Get SOL</h3><p>Buy SOL on an exchange and send it to your wallet.</p></li>
+      <li><h3>Hit the dumpster</h3><p>After launch, open Pump.fun, Raydium or Jupiter and connect your wallet.</p></li>
+      <li><h3>Paste the CA</h3><p>Paste the official contract address from this page, X or Telegram and swap SOL for $TRASH.</p></li>
+    </ol>
+    <p class="note">Only trust the CA posted on <a href="https://x.com/Trashonpump" target="_blank" rel="noopener" style="color:var(--gold)">@Trashonpump</a> and this page. Fake tokens will pop up at launch.</p>
+    <div class="cta" id="charts" hidden>
+      <a class="btn" id="dex" target="_blank" rel="noopener">DexScreener</a>
+      <a class="btn" id="bird" target="_blank" rel="noopener">Birdeye</a>
+      <a class="btn" id="jup" target="_blank" rel="noopener">Jupiter</a>
+    </div>
+  </div>
+</section>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <h2>Tokenomics</h2>
+    <dl class="stats">
+      <div class="stat gold"><dt>1,000,000,000</dt><dd>Total supply, standard Pump.fun launch.</dd></div>
+      <div class="stat gold"><dt>100% circulating</dt><dd>Fully circulating after the bonding curve.</dd></div>
+      <div class="stat gold"><dt>No team bag</dt><dd>No team allocation announced. Pure community meme.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="community" id="community">
+  <div class="wrap">
+    <h2>Join the dumpster dive</h2>
+    <p>Meme it, raid it, post it. The pack is gathering before launch.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://t.me/+SfKEE7guN5QwNGY1" target="_blank" rel="noopener">Join Telegram</a>
+      <a class="btn" href="https://x.com/Trashonpump" target="_blank" rel="noopener">@Trashonpump on X</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><a href="https://x.com/Trashonpump" target="_blank" rel="noopener">X</a><a href="https://t.me/+SfKEE7guN5QwNGY1" target="_blank" rel="noopener">Telegram</a><a href="https://pump.fun" target="_blank" rel="noopener">Pump.fun</a></div>
+    <span>$TRASH is a memecoin with no intrinsic value. DYOR. NFA. Only spend what you can afford to lose. 🦝🗑️🏆</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status">CA copied</div>
+
+<script>
+/* ===== AFTER LAUNCH: paste the real contract address between the quotes, then redeploy ===== */
+var CA = "";
+/* ========================================================================================== */
+(function(){
+  var LAUNCH = Date.UTC(2026,9,17,14,0,0); /* 17 Oct 2026 14:00 UTC */
+  var $=function(id){return document.getElementById(id)};
+  var toast=$('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+  function pad(n){return n<10?'0'+n:''+n}
+
+  function live(){
+    var hasCA = CA && CA.length>20;
+    if(hasCA){
+      $('caText').textContent=CA;
+      $('copy').hidden=false;
+      var p=$('pump');p.textContent='Buy on Pump.fun';p.href='https://pump.fun/coin/'+CA;
+      var b=$('buyTop');b.href='https://pump.fun/coin/'+CA;b.target='_blank';b.rel='noopener';b.removeAttribute('aria-disabled');
+      $('dex').href='https://dexscreener.com/solana/'+CA;
+      $('bird').href='https://birdeye.so/token/'+CA+'?chain=solana';
+      $('jup').href='https://jup.ag/swap/SOL-'+CA;
+      $('charts').hidden=false;
+    }
+  }
+  live();
+
+  function tick(){
+    var diff=LAUNCH-Date.now();
+    if(diff<=0){
+      $('cap').textContent='$TRASH is live';
+      $('clock').hidden=true;
+      $('when').textContent=(CA&&CA.length>20)?'Trash takeover is on. Grab the CA below.':'Launch time is here. CA is being posted on X and Telegram now.';
+      return false;
+    }
+    var s=Math.floor(diff/1000);
+    $('d').textContent=pad(Math.floor(s/86400));
+    $('h').textContent=pad(Math.floor(s%86400/3600));
+    $('m').textContent=pad(Math.floor(s%3600/60));
+    $('s').textContent=pad(s%60);
+    return true;
+  }
+  if(tick()){var iv=setInterval(function(){if(!tick())clearInterval(iv)},1000)}
+
+  $('copy').addEventListener('click',function(){
+    function fb(){var r=document.createRange();r.selectNodeContents($('caText'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');say('CA copied')}catch(e){say('Press and hold to copy')}}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(CA).then(function(){say('CA copied')},fb)}else{fb()}}catch(e){fb()}
+  });
+})();
+</script>
+</body>
+</html>
